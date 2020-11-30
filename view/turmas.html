@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/turmas.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main1.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta charset="utf8">
+</head>
+<body>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Cadastrar Nova Turma</h2>
+            </div>
+            <div class="modal-body">
+                <form  id="login">
+                    <div class="input-div w50 pr8">
+                        <div class="i">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Nome: </h5>
+                            <input  id="nome" type="text" class="input" placeholder="Nome">
+                        </div>
+                    </div>
+                    <div class="passwords">
+                        <div class="input-div w50 pr8">
+                            <div class="i">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                            <h5>Senha</h5>
+                                <input type="password" class="input" placeholder="Senha" id="senha">
+                            </div>
+                        </div>
+                        <div class="input-div w50 pl8">
+                            <div class="i">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                            <h5>Senha</h5>
+                                <input type="password" class="input" placeholder="Confirmar Senha" id="confirmar-senha">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="button-div">
+                    <button class="custom-btn">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <img src="../assets/img/education.svg" alt="" class="wave"> -->
+
+
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger">
+          <div></div>
+        </div>
+        <div class="menu">
+          <div>
+            <div>
+              <ul>
+                <li><a href="../index.html">Inicío</a></li>
+                <li><a href="./videos.html">Vídeos</a></li>
+                <li><a href="./atividades.html">Atividades Teóricas</a></li>
+                <li><a href="./praticas.html">Atividades Práticas</a></li>
+                <li><a href="#">Rendimento</a></li>
+                <li><a href="./mais.html">Mais</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+
+	<div class="main-section">
+		<div class="dashbord">
+			<div class="icon-section">
+				<i class="fa fa-users" aria-hidden="true"></i><br>
+				<small>Turma 1</small> <br><br>
+				<!-- <p>256</p> -->
+			</div>
+			<div class="detail-section">
+				<a href="#">Mais informações </a>
+			</div>
+		</div>
+		<div class="dashbord dashbord-green">
+			<div class="icon-section">
+				<i class="fa fa-users" aria-hidden="true"></i><br>
+				<small>Turma 2</small> <br><br>
+				<!-- <p>$ 256</p> -->
+			</div>
+			<div class="detail-section">
+				<a href="#">Mais informações </a>
+			</div>
+		</div>
+		<div class="dashbord dashbord-orange">
+			<div class="icon-section">
+				<i class="fa fa-users" aria-hidden="true"></i><br>
+				<small>Estrutura de Dados 1 (2020)</small> <br><br>
+				<!-- <p>9 New</p> -->
+			</div>
+			<div class="detail-section">
+				<a href="#">Mais informações </a>
+			</div>
+		</div>
+		<div class="dashbord dashbord-blue">
+			<div class="icon-section">
+				<i class="fa fa-users" aria-hidden="true"></i><br>
+				<small>Turma 4</small> <br><br>
+				<!-- <p>8</p> -->
+			</div>
+			<div class="detail-section">
+				<a href="#">Mais informações </a>
+			</div>
+		</div>
+		<div class="dashbord dashbord-red">
+			<div class="icon-section">
+				<i class="fa fa-users" aria-hidden="true"></i><br>
+				<small>Turma 5</small> <br><br>
+				<!-- <p>$ 24</p> -->
+			</div>
+			<div class="detail-section">
+				<a href="#">Mais informações</a>
+			</div>
+		</div>
+		<div class="dashbord dashbord-skyblue">
+			<div class="icon-section">
+				<i class="fa fa-users" aria-hidden="true"></i><br>
+				<small>Turma 6</small> <br><br>
+				<!-- <p>96</p> -->
+			</div>
+			<div class="detail-section">
+				<a href="#">Mais informações</a>
+			</div>
+        </div>
+    </div>
+    
+    <div class="centralizar">
+        <button id="myBtn" class="custom-btn">Nova Turma</button>
+    </div>
+   
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+    </script>
+</body>
+</html>

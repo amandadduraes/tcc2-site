@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" type="text/css" href="../assets/css/videos.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/main1.css">
+        <link rel="stylesheet" type="text/css" href="../assets/js/main.js">
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta charset="utf-8"/>
+
+        <title>Vídeos</title>
+        
+    </head>
+
+    <body>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger">
+              <div></div>
+            </div>
+            <div class="menu">
+              <div>
+                <div>
+                  <ul>
+                    <li><a href="../index.html">Inicío</a></li>
+                    <li><a href="./videos.html">Vídeos</a></li>
+                    <li><a href="./atividades.html">Atividades Teóricas</a></li>
+                    <li><a href="./praticas.html">Atividades Práticas</a></li>
+                    <li><a href="#">Rendimento</a></li>
+                    <li><a href="./mais.html">Mais</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+         <div class="container">
+             <h1>Vídeos</h1>
+             <div class="row">
+                 <div class="col">
+                     <div class="feature-img">
+                         <img src="../assets/img/undraw_video_files_fu10.svg" width="100%">
+                    
+                     </div>
+                 </div>
+                 <div class="col">
+                     <div class="small-img-row">
+                        <div class="small-img">
+                          <embed src="http://www.youtube.com/v/-TdbsZg6CC4"
+                          type="application/x-shockwave-flash"
+                          allowscriptaccess="always"
+                          allowfullscreen="true"
+                          >
+                          </embed>
+
+                        </div> 
+                        <p>Vídeo sobre Objetos</p>
+                     </div>
+
+                     <div class="small-img-row">
+                        <div class="small-img">
+                          <param name="allowFullScreen" value="true"></param>
+                          <embed src="http://www.youtube.com/v/-TdbsZg6CC4"
+                          type="application/x-shockwave-flash"
+                          allowscriptaccess="always"
+                          allowfullscreen="true"
+                         >
+                        </div> 
+                        <p>Vídeo sobre Classes</p>
+                     </div>
+                     <div class="small-img-row">
+                        <div class="small-img">
+                          <embed src="http://www.youtube.com/v/-TdbsZg6CC4"
+                          type="application/x-shockwave-flash"
+                          allowscriptaccess="always"
+                          allowfullscreen="true"
+                          >
+                        </div> 
+                        
+                        <p>Material sobre Classes</p>
+                     </div>
+                     <div class="small-img-row">
+                        <div class="small-img">
+                          <embed src="http://www.youtube.com/v/-TdbsZg6CC4"
+                          type="application/x-shockwave-flash"
+                          allowscriptaccess="always"
+                          allowfullscreen="true"
+                          >
+                        </div> 
+
+
+                        <p>Vídeo sobre Objetos</p>
+                     </div>
+                 </div>
+
+             </div>
+         </div> 
+
+         <div class="video-player" id="videoPlayer">
+             <video  width="100%" controls autoplay id="video">
+               
+              <embed src="http://www.youtube.com/v/-TdbsZg6CC4"
+              type="application/x-shockwave-flash"
+              allowscriptaccess="always"
+              allowfullscreen="true" id="video">
+            </embed>
+             </video>
+             <img src="../assets/img/close.png"  class="close-btn" 
+             onclick="stopVideo()">
+
+         </div>
+         <script>
+          var elem = document.getElementById("video");
+          if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+        }
+        </script>
+         
+         </html>
