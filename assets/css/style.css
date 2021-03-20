@@ -1,3 +1,22 @@
+@font-face
+{
+    font-family: 'DancingScript-VariableFont_wght';
+    src: url('../fonts/DancingScript-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'Poppins-SemiBold';
+    src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* A utilização do font-face é pra adicionar fontes que não estão incluidas no projeto.
+Foram adicionadas as seguintes fontes:  DancingScript-VariableFont e Popins Semi Bold*/
+
 *{
   padding: 0;
   margin: 0;
@@ -5,7 +24,7 @@
 }
 
 body{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins-SemiBold', sans-serif;
   overflow: hidden;
 }
 
@@ -13,7 +32,7 @@ body{
   position: relative;
   height: 100vh;
   width: 100vw;
-  background: url("../img/undraw_press_play_bx2d.svg") no-repeat;
+  background: url("../img/undraw_press_play_bx2d.svg") no-repeat; /* Colocando uma foto no fundo*/
   background-size: cover;
   background-position: 50% 36%;
   display: flex;
@@ -59,7 +78,7 @@ body{
   color: #DC143C;
   font-weight: 550;
   font-size: 1.1rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins-SemiBold', sans-serif;
   text-decoration: none;
   background-color: #ffffff;
   display: inline-block;
@@ -71,5 +90,5 @@ body{
 .btn:hover{
   opacity: 0.8;
   background: #e1062e;
-  color: black;
+  color: white;
 }

@@ -44,7 +44,7 @@ section .leftBox .content p
 }
 section .events
 {
-    position: relative;
+    
     width: 50%;
     height: 100%;
     background: rgba(0, 0, 0,.5);
@@ -52,15 +52,12 @@ section .events
     box-sizing: border-box;
     overflow: auto;
 }
-section .events ul
-{
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
+section .events ul{
 margin: 0;
 padding: 40px;
 box-sizing: border-box;
 }
+
 section .events ul li
 {
     list-style: none;
@@ -140,7 +137,7 @@ section .events ul li .details a
 section .events ul li .details a:hover
 {
     background: #e91e63;
-    color: rgb(160, 146, 146);
+    color: white;
     border-color: #e91e63;
 
 }

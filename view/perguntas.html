@@ -1,15 +1,58 @@
 
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>Awesome Quiz App | CodingNepal</title> -->
+    
     <link rel="stylesheet" href="../assets/css/perguntas.css">
 
-    <!-- FontAweome CDN Link for Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        let questions = [];
+
+        function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+
+        $(document).ready(function () {
+            const atividadeId = getUrlParameter('ativ')
+            if(!atividadeId) {
+                alert('Erro ao encontrar atividade!')
+                return;
+            }
+            
+            $.ajax({
+                url: '../controller/QuestaoController.php',
+                type: 'GET',
+                data: {
+                    getByAtividadeId: atividadeId,
+                },
+                success: function(data) {
+                    const questoes = JSON.parse(data);
+                    const parsed = questoes.map((q) => ({
+                        numb: q.id,
+                        question: q.descricao,
+                        answer: q.alternativas.filter((a) => a.id === q.alternativa_correta_id)[0].descricao,
+                        options: q.alternativas.map((a) => a.descricao)
+                    }));
+                    questions = parsed;
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -21,10 +64,10 @@
     <div class="info_box">
         <div class="info-title"><span>Intruções e Regras</span></div>
         <div class="info-list">
-            <div class="info">1. O aluno terá <span>15 segundos</span> para cada questão.</div>
+            <div class="info">1. O aluno terá <span>80 segundos</span> para cada questão.</div>
             <div class="info">2. Uma vez que a resposta for selecionada, não é possível desfazer.</div>
             <div class="info">3. Quando o tempo esgotar não será  possível selecionar nenhuma resposta.</div>
-            <div class="info">4. Você poderá sair do quiz clicando no  botão sair.</div>
+            <div class="info">4. Você poderá sair do quiz clicando no botão sair.</div>
             <div class="info">5. Ao finalizar o rendimento do aluno será exibido.</div>
         </div>
         <div class="buttons">
@@ -39,7 +82,7 @@
             <div class="title">Objeto</div>
             <div class="timer">
                 <div class="time_left_txt">Tempo</div>
-                <div class="timer_sec">15</div>
+                <div class="timer_sec">80</div>
             </div>
             <div class="time_line"></div>
         </header>
@@ -79,8 +122,7 @@
     <!-- Inside this JavaScript file I've inserted Questions and Options only -->
      <script src="../assets/js/perguntas.js"></script>
 
-    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
-     <script src="../assets/js/questions.js"></script>
+   
 
 </body>
 </html>

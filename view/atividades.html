@@ -3,10 +3,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <link rel="stylesheet" type="text/css" href="../assets/css/teorica.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/main1.css">
-        <link rel="stylesheet" type="text/css" href="../assets/js/main.js">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <script src="../assets/js/jquery.min.js"></script>
 
         <title>Atividades Teóricas</title>
+
+        <script>
+          $(document).ready(function () {
+            $.ajax({
+              url: "../../controller/AtividadeController.php",
+              type: "GET",
+              data: {
+                getByTurmaCodigo: 211080, //Este código é pego de acordo com o ID da turma lá no Banco de dados
+              },
+              success: function (data) {
+                const atividades = JSON.parse(data)
+                atividades.forEach(({ id, descricao }, i) => {
+                  $(".events ul").append(`
+                    <li>
+                      <div class="time">
+                          <h2>  <br> <span>${i + 1}</span></h2>
+                      </div>
+                      <div class="details">
+                        <h3>${descricao}</h3>
+                        <a href="../../view/perguntas.html?ativ=${id}">Iniciar Quiz</a>
+                      </div>
+                    </li>
+                  `)
+                });
+              }
+            })
+          });
+        </script>
     </head>
 
     <body>
@@ -19,7 +47,7 @@
               <div>
                 <div>
                   <ul>
-                    <li><a href="../index.html">Inicío</a></li>
+                    <li><a href="../index.html">Início</a></li>
                     <li><a href="./videos.html">Vídeos</a></li>
                     <li><a href="./atividades.html">Atividades Teóricas</a></li>
                     <li><a href="./praticas.html">Atividades Práticas</a></li>
