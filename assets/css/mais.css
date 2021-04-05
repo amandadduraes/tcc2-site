@@ -90,6 +90,7 @@ form {
 .input-container {
   position: relative;
   margin: 1rem 0;
+  margin-bottom: 8px;
 }
 
 .input {
@@ -209,13 +210,13 @@ textarea.input {
 }
 
 .text {
-  color: #333;
+  color: dark;
   margin: 1.5rem 0 2rem 0;
 }
 
 .information {
   display: flex;
-  color: #555;
+  color: dark;
   margin: 0.7rem 0;
   align-items: center;
   font-size: 0.95rem;
@@ -225,13 +226,16 @@ textarea.input {
   width: 28px;
   margin-right: 0.7rem;
 }
-
+.input-container ::placeholder{
+color: white;
+  
+}
 .social-media {
   padding: 2rem 0 0 0;
 }
 
 .social-media p {
-  color: #333;
+  color: white;
 }
 
 .social-icons {
@@ -253,6 +257,7 @@ textarea.input {
 
 .social-icons a:hover {
   transform: scale(1.05);
+  background-color: #DC143C;
 }
 
 .contact-info:before {

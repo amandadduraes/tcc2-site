@@ -69,34 +69,79 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form action="index.html" autocomplete="off">
-            <h3 class="title">Contato</h3>
+          <form action="https://postmail.invotes.com/send" method="post" id="email_form" autocomplete="off">
+           <!-- <h3 class="title">Contato</h3>
             <div class="input-container">
-              <input type="text" name="name" class="input" />
-              <label for="">Nome</label>
+              <input type="text" name="name" class="input" placeholder="Nome" />
+             
               <span>Nome</span>
             </div>
             <div class="input-container">
-              <input type="email" name="email" class="input" />
-              <label for="">E-mail</label>
+              <input type="email" name="email" class="input" placeholder="E-mail" />
+              
               <span>E-mail</span>
             </div>
             <div class="input-container">
-              <input type="tel" name="phone" class="input" />
-              <label for="">Telefone</label>
-              <span>Telefone</span>
+              <input type="tel" name="phone" class="input" placeholder="Telefone" />
+              
+              
             </div>
             <div class="input-container textarea">
-              <textarea name="message" class="input"></textarea>
-              <label for="">Mensagem</label>
+              <textarea name="message" class="input" placeholder="Mensagem"></textarea>
+              
               <span>Mensagem</span>
             </div>
-            <input type="submit" value="Enviar" class="btn" />
+            <input type="submit" value="Enviar" name="submit" class="btn" /> -->
+
+            <h3 class="title">Contato</h3>
+            <div class="input-container">
+            <input type="text" class="input" name="subject" placeholder="Assunto" />
+            </div>
+            <div class="input-container">
+            <input type="text" class="input" name="extra_phone_number" placeholder="Nome">
+          </div>
+          <div class="input-container">
+            <textarea name="text" class="input" placeholder="Mensagem"></textarea>
+            <span>Mensagem</span>
+            </div>
+            <input type="hidden"  name="access_token"  value="sg9863u4nixgjg1ic1kjn78v" />
+      <!-- return urls can be fully qualified -OR-
+         start with / for root relative -OR-
+         start with . for url relative --> 
+         <!-- <input type="hidden" name="success_url" value="https://www.google.com/" />
+          <input type="hidden" name="error_url" value="https:www.google.com.br" /> --> 
+   
+
+    <!-- set the reply-to address -->
+    <!-- <input type="text" name="reply_to"
+                placeholder="Your Email" /> -->
+
+    <!-- to append extra fields, use the extra_ prefix.
+        Entries will be appended to your message body. -->
+    <!-- <input type="text" name="extra_phone_number"
+                placeholder="Phone Number" /> -->
+
+    <!-- to split your message into 160 chars
+         for an sms gateway -->
+    <!-- <input type="hidden"
+                name="sms_format" value="true" /> -->
+          
+          <input id="submit_form" type="submit" class="btn input" value="Enviar" />
+    
           </form>
         </div>
       </div>
     </div>
 
-    
+    <script>
+      var submitButton = document.getElementById("submit_form");
+      var form = document.getElementById("email_form");
+      form.addEventListener("submit", function (e) {
+          setTimeout(function() {
+              submitButton.value = "Enviando...";
+              submitButton.disabled = true;
+          }, 1);
+      });
+  </script> 
   </body>
 </html>
