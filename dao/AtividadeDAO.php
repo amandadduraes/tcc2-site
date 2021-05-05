@@ -1,12 +1,12 @@
 <?php
 
-require_once (__DIR__."/./conexao.php");
+require_once (__DIR__."/./Connection.php");
 require_once (__DIR__."/../model/Atividade.php");
 
 class AtividadeDAO {
   public static function getByTurmaCodigo($turmaCodigo) {
     try {
-			$conn = Connection::getConn();
+		$conn = Connection::getConn();
 
 			$sql = $conn->prepare(
 				'SELECT * FROM atividade
@@ -36,7 +36,7 @@ class AtividadeDAO {
 				echo "null";
 	        
 	    } catch(Exception $e) {
-		  Connection::showLog($e->getMessage());
+        var_dump($e);
 		}	
   }
 }

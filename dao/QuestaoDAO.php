@@ -1,7 +1,8 @@
 <?php
 
-require_once (__DIR__."/./conexao.php");
+require_once (__DIR__."/./Connection.php");
 require_once (__DIR__."/../model/Questao.php");
+require_once (__DIR__."/../dao/AtividadeDAO.php");
 
 class QuestaoDAO {
   public static function getByAtividadeId($atividadeId) {
@@ -36,7 +37,7 @@ class QuestaoDAO {
 				echo "null";
 	        
 	    } catch(Exception $e) {
-		  Connection::showLog($e->getMessage());
+        var_dump($e);
 		}	
   }
 }

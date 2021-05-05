@@ -1,7 +1,8 @@
 <?php
 
-require_once (__DIR__."/./conexao.php");
-require_once (__DIR__."/../model/Alternativa.php"); ?? 
+require_once (__DIR__."/./Connection.php");
+require_once (__DIR__."/../model/Alternativa.php"); 
+
 
 class AlternativaDAO {
   public static function getByQuestaoId($questaoId) {
@@ -36,7 +37,7 @@ class AlternativaDAO {
 				echo "null";
 	        
 	    } catch(Exception $e) {
-		  Connection::showLog($e->getMessage());
+		    var_dump($e);
 		}	
   }
 }

@@ -29,7 +29,7 @@ section .leftBox .content
 }
 section .leftBox .content:hover
 {
-    background: #FF007f;
+    background:#b1005b;
 }
 section .leftBox .content h1
 {
@@ -81,7 +81,7 @@ section .events ul li .time
 }
 section .events ul li:hover .time
 {
-    background: #FF007f;
+    background: #b1005b;
 }
 section .events ul li .time h2
 {
@@ -127,18 +127,18 @@ section .events ul li .details a
     display: inline-block;
     text-decoration: none;
     padding: 10px 15px;
-    border: 2px solid #262626;
+    border: 2px solid black;
     margin-top: 15px;
     font-size: 18px;
     transition: .5s;
-    color: #FF007f;
+    color: #b1005b;
    
 }
 section .events ul li .details a:hover
 {
-    background: #e91e63;
+    background: #b1005b;
     color: white;
-    border-color: #e91e63;
+    border-color: #b1005b;
 
 }
 

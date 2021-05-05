@@ -21,10 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			}
 			else {
 				//usuário encontrado
+				
 				session_start();
 				
-				$_SESSION["email"] = $user->email;
-				$_SESSION["nome"] = $user->nome;
+				
+				$_SESSION["user"] = $user;
 
 				$res["res"] = TRUE;
 				$res["msg"] = "Usuário encontrado!";

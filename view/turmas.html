@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <meta charset="utf8">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/turmas.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/main1.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css"> -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <meta charset="utf8">
-</head>
-<body>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/turma.js"></script>
 
+</head>
+
+<body>
     <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
@@ -79,12 +83,11 @@
         </div>
     </div>
 
-	<div class="main-section">
-		<div class="dashbord">
+	<div id="turmas-div" class="main-section">
+		<!-- <div class="dashbord">
 			<div class="icon-section">
 				<i class="fa fa-users" aria-hidden="true"></i><br>
 				<small>Turma 1</small> <br><br>
-				<!-- <p>256</p> -->
 			</div>
 			<div class="detail-section">
 				<a href="#">Mais informações </a>
@@ -94,7 +97,6 @@
 			<div class="icon-section">
 				<i class="fa fa-users" aria-hidden="true"></i><br>
 				<small>Turma 2</small> <br><br>
-				<!-- <p>$ 256</p> -->
 			</div>
 			<div class="detail-section">
 				<a href="#">Mais informações </a>
@@ -104,7 +106,6 @@
 			<div class="icon-section">
 				<i class="fa fa-users" aria-hidden="true"></i><br>
 				<small>Estrutura de Dados 1 (2020)</small> <br><br>
-				<!-- <p>9 New</p> -->
 			</div>
 			<div class="detail-section">
 				<a href="#">Mais informações </a>
@@ -114,7 +115,6 @@
 			<div class="icon-section">
 				<i class="fa fa-users" aria-hidden="true"></i><br>
 				<small>Turma 4</small> <br><br>
-				<!-- <p>8</p> -->
 			</div>
 			<div class="detail-section">
 				<a href="#">Mais informações </a>
@@ -124,7 +124,6 @@
 			<div class="icon-section">
 				<i class="fa fa-users" aria-hidden="true"></i><br>
 				<small>Turma 5</small> <br><br>
-				<!-- <p>$ 24</p> -->
 			</div>
 			<div class="detail-section">
 				<a href="#">Mais informações</a>
@@ -134,12 +133,11 @@
 			<div class="icon-section">
 				<i class="fa fa-users" aria-hidden="true"></i><br>
 				<small>Turma 6</small> <br><br>
-				<!-- <p>96</p> -->
 			</div>
 			<div class="detail-section">
 				<a href="#">Mais informações</a>
 			</div>
-        </div>
+        </div> -->
     </div>
     
     <div class="centralizar">

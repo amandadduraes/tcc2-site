@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta charset="utf-8"/>
+    <meta charset="utf-8"/> 
         
     <title> Login</title>
 
@@ -46,14 +46,20 @@
   
             if(response.res) {
               const user = response.user;
+
+              localStorage.setItem("user_email", user.email);
+              localStorage.setItem("user_name", user.nome);
+              localStorage.setItem("user_perfil", user.perfil);
+
               if (user.perfil === "aluno") {
                 location.href = "atividades.html";
               }
               else {
-                location.href = "mais.html";
+                location.href = "turmas.html";
+
               }
               
-              console.log(response.user);
+              console.log(user);
             }
             else {
               alert("Usuário ou senha inválidos!");
@@ -62,6 +68,8 @@
         });
       })
     });
+
+
   
   </script>
 </head>

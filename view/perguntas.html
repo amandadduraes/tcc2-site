@@ -3,10 +3,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="../assets/css/perguntas.css">
-
+    <script src="../assets/js/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <script>
@@ -43,9 +42,9 @@
                 success: function(data) {
                     const questoes = JSON.parse(data);
                     const parsed = questoes.map((q) => ({
-                        numb: q.id,
+                        //numb: q.id,
                         question: q.descricao,
-                        answer: q.alternativas.filter((a) => a.id === q.alternativa_correta_id)[0].descricao,
+                        answer: q.alternativas.find((a) => a.id === q.alternativa_correta_id).descricao,
                         options: q.alternativas.map((a) => a.descricao)
                     }));
                     questions = parsed;

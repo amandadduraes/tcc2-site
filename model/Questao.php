@@ -1,5 +1,7 @@
 <?php
 
+require_once (__DIR__."/../dao/AlternativaDAO.php");
+
 class Questao {
     public $id;
     public $descricao;
@@ -15,5 +17,8 @@ class Questao {
         $this->valor = $tupla["valor"];
         $this->atividade_id = $tupla["atividade_id"]; 
         $this->alternativa_correta_id = $tupla["alternativa_correta_id"]; 
+
+        $this->alternativas = AlternativaDAO::getByQuestaoId($this->id);
     }
+    
 }
