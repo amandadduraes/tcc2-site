@@ -11,9 +11,31 @@
     <script src="../assets/js/moment.min.js"></script>
     <script src="../assets/js/turma.js"></script>
 
+   
+
 </head>
 
 <body>
+<?php
+include_once "menu.php";
+include_once "../model/Usuario.php";
+session_start();
+
+
+if(!isset($_SESSION["user"])){
+    header("Location: ../index.php");
+}
+
+        $usuario = $_SESSION["user_perfil"];
+
+
+if($usuario == 'professor'){
+    navProfessor();
+}else{
+    navAluno();
+}
+?>
+     
     <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
@@ -22,14 +44,14 @@
                 <h2>Cadastrar Nova Turma</h2>
             </div>
             <div class="modal-body">
-                <form  id="login">
+                <form  id="cadastrar" name="cadastrar"> 
                     <div class="input-div w50 pr8">
                         <div class="i">
                             <i class="fas fa-pencil-alt"></i>
                         </div>
                         <div>
                             <h5>Nome: </h5>
-                            <input  id="nome" type="text" class="input" placeholder="Nome">
+                            <input  id="nome" type="text" name ="nome" class="input" placeholder="Nome" required maxlength="128">
                         </div>
                     </div>
                     <div class="passwords">
@@ -39,30 +61,32 @@
                             </div>
                             <div>
                             <h5>Senha</h5>
-                                <input type="password" class="input" placeholder="Senha" id="senha">
-                            </div>
-                        </div>
-                        <div class="input-div w50 pl8">
-                            <div class="i">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div>
-                            <h5>Senha</h5>
-                                <input type="password" class="input" placeholder="Confirmar Senha" id="confirmar-senha">
+                                <input type="password" name="senha" class="input" placeholder="Senha" id="senha" required maxlength="256"> 
                             </div>
                         </div>
                     </div>
+                    <div class="codigo">
+                        <div class="input-div w50 pr8">
+                            <div class="i">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <div>
+                            <h5>Código da Turma</h5>
+                                <input type="input" name="codigo" class="input" placeholder="Código da Turma" id="codigo" required maxlength="64"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-div">
+                    <button class="custom-btn" type="submit">Cadastrar</button>
+                    </div>
                 </form>
-                <div class="button-div">
-                    <button class="custom-btn">Cadastrar</button>
-                </div>
             </div>
         </div>
     </div>
     <!-- <img src="../assets/img/education.svg" alt="" class="wave"> -->
 
 
-    <div class="menu-wrap">
+   <!-- <div class="menu-wrap">
         <input type="checkbox" class="toggler">
         <div class="hamburger">
           <div></div>
@@ -81,7 +105,9 @@
             </div>
           </div>
         </div>
-    </div>
+    </div> -->
+
+    <div class="menuAluno"></div>
 
 	<div id="turmas-div" class="main-section">
 		<!-- <div class="dashbord">

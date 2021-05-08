@@ -14,27 +14,26 @@
     ></script>
   </head>
   <body>
-    <div class="menu-wrap">
-        <input type="checkbox" class="toggler">
-        <div class="hamburger">
-          <div></div>
-        </div>
-        <div class="menu">
-          <div>
-            <div>
-              <ul>
-                <li><a href="../index.html">Início</a></li>
-                    <li><a href="./videos.html">Vídeos</a></li>
-                    <li><a href="./atividades.html">Atividades Teóricas</a></li>
-                    <li><a href="./praticas.html">Atividades Práticas</a></li>
-                    <li><a href="#">Rendimento</a></li>
-                    <li><a href="./mais.html">Mais</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+  <?php
+include_once "menu.php";
+include_once "../model/Usuario.php";
+session_start();
 
+
+if(!isset($_SESSION["user"])){
+    header("Location: ../index.php");
+}
+
+        $usuario = $_SESSION["user_perfil"];
+
+
+if($usuario == 'professor'){
+    navProfessor();
+}else{
+    navAluno();
+}
+?>
+    
     <div class="container">
       <span class="big-circle"></span>
       <img src="../assets/img/corpo.png" class="square" alt="" />
@@ -70,28 +69,8 @@
           <span class="circle two"></span>
 
           <form action="https://postmail.invotes.com/send" method="post" id="email_form" autocomplete="off">
-           <!-- <h3 class="title">Contato</h3>
-            <div class="input-container">
-              <input type="text" name="name" class="input" placeholder="Nome" />
-             
-              <span>Nome</span>
-            </div>
-            <div class="input-container">
-              <input type="email" name="email" class="input" placeholder="E-mail" />
-              
-              <span>E-mail</span>
-            </div>
-            <div class="input-container">
-              <input type="tel" name="phone" class="input" placeholder="Telefone" />
-              
-              
-            </div>
-            <div class="input-container textarea">
-              <textarea name="message" class="input" placeholder="Mensagem"></textarea>
-              
-              <span>Mensagem</span>
-            </div>
-            <input type="submit" value="Enviar" name="submit" class="btn" /> -->
+          
+            
 
             <h3 class="title">Contato</h3>
             <div class="input-container">
@@ -105,27 +84,7 @@
             <span>Mensagem</span>
             </div>
             <input type="hidden"  name="access_token"  value="sg9863u4nixgjg1ic1kjn78v" />
-      <!-- return urls can be fully qualified -OR-
-         start with / for root relative -OR-
-         start with . for url relative --> 
-         <!-- <input type="hidden" name="success_url" value="https://www.google.com/" />
-          <input type="hidden" name="error_url" value="https:www.google.com.br" /> --> 
-   
-
-    <!-- set the reply-to address -->
-    <!-- <input type="text" name="reply_to"
-                placeholder="Your Email" /> -->
-
-    <!-- to append extra fields, use the extra_ prefix.
-        Entries will be appended to your message body. -->
-    <!-- <input type="text" name="extra_phone_number"
-                placeholder="Phone Number" /> -->
-
-    <!-- to split your message into 160 chars
-         for an sms gateway -->
-    <!-- <input type="hidden"
-                name="sms_format" value="true" /> -->
-          
+      
           <input id="submit_form" type="submit" class="btn input" value="Enviar" />
     
           </form>

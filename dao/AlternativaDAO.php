@@ -34,7 +34,7 @@ class AlternativaDAO {
         }
 			}
 			else
-				echo "null";
+				return 0;
 	        
 	    } catch(Exception $e) {
 		    var_dump($e);

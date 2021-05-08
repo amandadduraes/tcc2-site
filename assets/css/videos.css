@@ -1,13 +1,97 @@
+
+
+
 *
 {
     margin: 0;
     padding: 0;
 }
+
 body
 {
-    background: 		#FFFAFA;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: #FFFAFA;
+    height: 100vh;
+    width: 100vw;
 }
-.container
+
+
+.container-principal
+{
+    display: flex;
+    height: calc(100vh - 56px);
+}
+
+.container-direita {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.videos-list {
+    overflow: auto;
+}
+
+    .container-esquerda {
+        width: 50%;
+        padding: 20px;
+        background: url("../img/undraw_video_files_fu10.svg") no-repeat;
+        background-size: contain;
+        background-origin: content-box;
+    }
+
+    .container-teste h1
+    {
+        padding: 60px 0;
+        font-size: 44px;
+        text-align: center;
+        font-family: 'DancingScript-VariableFont_wght';
+    }
+    .row
+    {
+        display: flex ;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .col
+    {
+        flex-basis: 50%;
+        min-width: 250px;
+    }
+    .feature-img
+    {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    .small-img-row
+    {
+        display: flex;
+        margin: 20px 0;
+        background-color: white;
+        align-items: center;
+        border-radius: 6px;
+        overflow: hidden;
+        width: 85%;
+    }
+    .small-img
+    {
+        position: relative;
+    }
+
+    .small-img-row p
+    {
+        margin-left: 20px;
+        line-height: 22px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+/*.container
 
 {
     width: 80%;
@@ -77,5 +161,4 @@ body
     float: right;
     box-sizing: border-box;
     overflow: auto;
-}
-
+}*/

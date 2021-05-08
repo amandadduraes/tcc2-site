@@ -12,6 +12,6 @@ class Usuario {
         $this->email = $tupla["email"];
         $this->senha = $tupla["senha"];
         $this->perfil = $tupla["perfil"];
-        $this->insituicao = $tupla["instituicao"];
+        $this->instituicao = $tupla["instituicao"];
     }
 }

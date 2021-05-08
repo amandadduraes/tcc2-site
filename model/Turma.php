@@ -7,8 +7,9 @@ class Turma {
     public $professor_email;
     public $criado_em;
 
-    public function __construct( array $tupla ) {
-    
+    public function  carregarObjetoDoBancoDeDados( array $tupla ) {
+        
+        
         $this->codigo = $tupla["codigo"];
         $this->nome = $tupla["nome"];
         $this->senha = $tupla["senha"]; 

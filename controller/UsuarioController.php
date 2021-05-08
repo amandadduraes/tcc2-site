@@ -4,6 +4,16 @@
 require_once (__DIR__."./../model/Usuario.php");
 require_once (__DIR__."./../dao/UsuarioDAO.php");
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+	if(array_key_exists("deslogar",$_GET)) {
+		session_start();
+		session_destroy();
+
+		header("Location: ../index.php");		
+	}
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	if(array_key_exists("login",$_POST)) {
@@ -24,8 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				
 				session_start();
 				
-				
-				$_SESSION["user"] = $user;
+				$_SESSION["user"] = TRUE;
+				$_SESSION["user_email"] = $user->email;
+				$_SESSION["user_nome"] = $user->nome;
+				$_SESSION["user_instituicao"] = $user->instituicao;
+				$_SESSION["user_perfil"] = $user->perfil;
 
 				$res["res"] = TRUE;
 				$res["msg"] = "Usuário encontrado!";
@@ -63,4 +76,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		echo json_encode($aux);
 	}
 	
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+	parse_str(file_get_contents('php://input'), $_PUT);
+
+	if(array_key_exists("edit", $_PUT)) {
+		session_start();
+		
+		$usuario = new Usuario();
+		$usuario->nome = $_PUT["nome"];
+		$usuario->senha = $_PUT["senha"];
+		$usuario->instituicao = $_PUT["instituicao"];
+
+		$email_usuario_logado = $_SESSION["user_email"];
+		
+		$res = UsuarioDAO::update(array("editarUsuario", $email_usuario_logado, $usuario));
+
+		if($res) {
+			$_SESSION["user_nome"] = $usuario->nome;
+			$_SESSION["user_instituicao"] = $usuario->instituicao;
+		}
+
+		echo json_encode(array("res" => $res));
+	}
 }

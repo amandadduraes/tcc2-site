@@ -28,6 +28,8 @@
 
         $(document).ready(function () {
             const atividadeId = getUrlParameter('ativ')
+            $("#hiddenAtividadeId").val(atividadeId)
+
             if(!atividadeId) {
                 alert('Erro ao encontrar atividade!')
                 return;
@@ -41,8 +43,8 @@
                 },
                 success: function(data) {
                     const questoes = JSON.parse(data);
-                    const parsed = questoes.map((q) => ({
-                        //numb: q.id,
+                    const parsed = questoes.map((q, i) => ({
+                        numb: i+1,
                         question: q.descricao,
                         answer: q.alternativas.find((a) => a.id === q.alternativa_correta_id).descricao,
                         options: q.alternativas.map((a) => a.descricao)
@@ -50,11 +52,34 @@
                     questions = parsed;
                 }
             });
+
+
+            $("#iniciarQuiz").click(function() {
+                $.ajax({
+                    url: "../controller/UsuarioHasAtividadeController.php",
+                    method: "POST",
+                    data: {
+                        atividadeId
+                    },
+                    success: function(data) {
+                        if(data && JSON.parse(data)) {
+                            const response = JSON.parse(data)
+
+                            if(!response.res) {
+                                console.log("Erro! Tente novamente mais tarde!")
+                            }
+                        }
+                        else {
+                            console.log("Tente novamente mais tarde!")
+                        }
+                    }
+                })
+            });
         });
     </script>
 </head>
 <body>
-
+    <input type="hidden" id="hiddenAtividadeId">
   <img src="../assets/img/question.svg" alt="" class="wave">
     <!-- start Quiz button -->
     <div class="start_btn"><button>Iniciar Quiz!</button></div>
@@ -71,14 +96,14 @@
         </div>
         <div class="buttons">
             <button class="quit">Sair</button>
-            <button class="restart">Continuar</button>
+            <button id="iniciarQuiz" class="restart">Continuar</button>
         </div>
     </div>
 
     <!-- Quiz Box -->
     <div class="quiz_box">
         <header>
-            <div class="title">Objeto</div>
+            <div class="title"></div>
             <div class="timer">
                 <div class="time_left_txt">Tempo</div>
                 <div class="timer_sec">80</div>
@@ -120,9 +145,6 @@
 
     <!-- Inside this JavaScript file I've inserted Questions and Options only -->
      <script src="../assets/js/perguntas.js"></script>
-
-   
-
 </body>
 </html>
 

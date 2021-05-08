@@ -18,7 +18,7 @@ class UsuarioDAO {
             $res = $sql->execute();
             
             return $res;
-        } catch(Exeption $e) {
+        } catch(Exception $e) {
             echo $e;
             $sql->debugDumpParams();
         }
@@ -72,7 +72,40 @@ class UsuarioDAO {
         catch (Exception $e){
             echo $e->getMessage();
         }    
- }
+    }
 
+    public static function update(array $args) {
+        if($args[0] == "editarUsuario") {
+            $logged_user_email = $args[1];
+            $user = $args[2];
+
+            $conn = Connection::getConn();
+
+            $sql = $conn->prepare('
+                UPDATE usuario
+                SET
+                    nome = ?,
+                    senha = ?,
+                    instituicao = ?
+                WHERE
+                    usuario.email = ?
+            ');
+
+            $sql->bindValue(1, $user->nome);
+            $sql->bindValue(2, $user->senha);
+            $sql->bindValue(3, $user->instituicao);
+            $sql->bindValue(4, $logged_user_email);
+
+            //$sql->debugDumpParams();
+
+            $res = $sql->execute();
+
+            if($res) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
 }
-

@@ -8,6 +8,50 @@ $(document).ready(function () {
             carregarTurmasNaTela(turmas)
         }
     });
+
+    $('#cadastrar').submit(function(e) {
+        e.preventDefault();
+        var nome = $("#nome").val();
+        var senha = $("#senha").val();
+        var codigo = $("#codigo").val();
+        
+
+        if(senha.length < 5) {
+           alert("O campo senha deve conter no mínimo 5 caracteres!")
+           return;
+        }
+
+        $.ajax({
+           type: "POST",
+           url: "../controller/TurmaController.php",
+           data: {
+              save: 1,
+              nome,
+              senha,
+              codigo
+              
+           }, 
+           success: function(data) {
+              var value=JSON.parse(data);
+              if (value.error)
+              {
+                 alert("Turma já cadastrado!")
+                 return
+              }
+              alert(
+                 data 
+                    ? "Turma cadastrada com sucesso!"
+                    : "Erro ao realizar cadastro!"
+              )
+
+              //location.href="./turmas.php"
+           },
+           error: function (data) {
+              alert("Erro inesperado, tente novamente!")
+              console.log(data)
+           }
+        })
+      })
 });
 
 function carregarTurmasNaTela(turmas) {

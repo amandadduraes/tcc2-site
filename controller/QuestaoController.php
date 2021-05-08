@@ -7,6 +7,7 @@ if($_SERVER["REQUEST_METHOD"] === "GET") {
         $atividadeId = $_GET["getByAtividadeId"];
 
         $questoes = QuestaoDAO::getByAtividadeId($atividadeId);
+        shuffle($questoes);
         echo json_encode($questoes);
     }
 }

@@ -3,7 +3,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1"> 
       <link rel="stylesheet" type="text/css" href="../assets/css/teorica.css">
       <link rel="stylesheet" type="text/css" href="../assets/css/main1.css">
-      <link rel="stylesheet" type="text/css" href="../assets/js/main.js">
       <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
       
 
@@ -41,28 +40,27 @@
 
     <body>
         
+<?php
+include_once "menu.php";
+include_once "../model/Usuario.php";
+session_start();
 
-          <div class="menu-wrap">
-            <input type="checkbox" class="toggler">
-            <div class="hamburger">
-              <div></div>
-            </div>
-            <div class="menu">
-              <div>
-                <div>
-                  <ul>
-                    <li><a href="../index.html">Inicío</a></li>
-                    <li><a href="./videos.html">Vídeos</a></li>
-                    <li><a href="./atividades.html">Atividades Teóricas</a></li>
-                    <li><a href="./praticas.html">Atividades Práticas</a></li>
-                   <!-- <li><a href="#">Rendimento</a></li> -->
-                   <li><a href="./turmas.html">Disciplinas</a></li>
-                    <li><a href="./mais.html">Mais</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+
+if(!isset($_SESSION["user"])){
+    header("Location: ../index.php");
+}
+
+        $usuario = $_SESSION["user_perfil"];
+
+
+if($usuario == 'professor'){
+    navProfessor();
+}else{
+    navAluno();
+}
+?>
+
+         
 
           <section>
               <div class="leftBox">

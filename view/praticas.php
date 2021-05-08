@@ -10,26 +10,26 @@
     </head>
 
     <body>
-        <div class="menu-wrap">
-            <input type="checkbox" class="toggler">
-            <div class="hamburger">
-              <div></div>
-            </div>
-            <div class="menu">
-              <div>
-                <div>
-                  <ul>
-                    <li><a href="../index.html">Inicío</a></li>
-                    <li><a href="./videos.html">Vídeos</a></li>
-                    <li><a href="./atividades.html">Atividades Teóricas</a></li>
-                    <li><a href="./praticas.html">Atividades Práticas</a></li>
-                    <li><a href="#">Rendimento</a></li>
-                    <li><a href="./mais.html">Mais</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+<?php
+include_once "menu.php";
+include_once "../model/Usuario.php";
+session_start();
+
+
+if(!isset($_SESSION["user"])){
+    header("Location: ../index.php");
+}
+
+        $usuario = $_SESSION["user_perfil"];
+
+
+if($usuario == 'professor'){
+    navProfessor();
+}else{
+    navAluno();
+}
+?>
+        
 
           <section>
               <div class="leftBox">

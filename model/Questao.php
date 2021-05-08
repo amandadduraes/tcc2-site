@@ -18,7 +18,10 @@ class Questao {
         $this->atividade_id = $tupla["atividade_id"]; 
         $this->alternativa_correta_id = $tupla["alternativa_correta_id"]; 
 
-        $this->alternativas = AlternativaDAO::getByQuestaoId($this->id);
+        $alternativas = AlternativaDAO::getByQuestaoId($this->id);
+        shuffle($alternativas);
+        
+        $this->alternativas = $alternativas;
     }
     
 }
