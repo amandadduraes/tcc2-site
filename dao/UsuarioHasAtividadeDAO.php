@@ -22,6 +22,7 @@ class UsuarioHasAtividadeDAO {
     public static function read(array $args) {
         switch($args[0]) {
             case "findById": return self::findById($args[1], $args[2]);
+            case "findByTurmaCodigo": return self::findByTurmaCodigo($args[1]);
         }
     }
 
@@ -79,6 +80,36 @@ class UsuarioHasAtividadeDAO {
         }
         catch(Exception $ex) {
             var_dump($ex);
+        }
+    }
+
+    protected static function findByTurmaCodigo($codigo){
+        try{
+
+            $conn = Connection::getConn();
+            
+            $sql = $conn->prepare('
+            SELECT *
+            FROM usuario_has_atividade
+            WHERE usuario_has_atividade. = ?
+                AND usuario_has_atividade.atividade_id = ?
+            ');
+            $sql->bindValue(1, $usuario_email);
+            $sql->bindValue(2, $atividadeId);
+            
+            $res = $sql->execute();
+
+            if($res == 1) {
+                if($sql->rowCount() > 0) {
+                    $userAtiv = new UsuarioHasAtividade();
+                    return $userAtiv->carregarObjetoDoBanco($sql->fetch());
+                }
+                else
+                    return NULL;
+            }
+
+        }catch(Exception $ex){
+
         }
     }
 }

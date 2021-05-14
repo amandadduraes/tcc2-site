@@ -48,9 +48,9 @@
               localStorage.setItem("user_perfil", user.perfil);
 
               if (user.perfil === "aluno") {
-                location.href = "atividades.php";
+                location.href = "turmasAluno.php";
               } else {
-                location.href = "turmas.php";
+                location.href = "turmasProfessor.php";
 
               }
 

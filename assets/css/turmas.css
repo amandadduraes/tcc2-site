@@ -17,6 +17,7 @@ text-align: center;
 padding: 0px 5px;
 }
 .dashbord{
+cursor: pointer;
 width:32%;
 display: inline-block;
 background-color:#34495E;

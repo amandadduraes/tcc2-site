@@ -1,7 +1,15 @@
 const user_email = localStorage.getItem("user_email");
 
 $(document).ready(function () {
-    $.get("../controller/TurmaController.php", {"findByProfessorEmail": user_email}, function(data, response) {
+    
+    $('#turmas-div').on('click', '.dashbord', function(){
+
+        const codigo = $(this).find(".hidden-turma-id").val();
+        console.log(codigo);
+        location.href = '../view/rendimento.php?codigo=' + codigo ;
+    })
+
+    $.get("../controller/TurmaController.php", {"findByEmail": user_email}, function(data, response) {
         var turmas = response == "success" && JSON.parse(data) ? JSON.parse(data) : false
 
         if (turmas) {
@@ -15,7 +23,6 @@ $(document).ready(function () {
         var senha = $("#senha").val();
         var codigo = $("#codigo").val();
         
-
         if(senha.length < 5) {
            alert("O campo senha deve conter no mínimo 5 caracteres!")
            return;
@@ -29,7 +36,6 @@ $(document).ready(function () {
               nome,
               senha,
               codigo
-              
            }, 
            success: function(data) {
               var value=JSON.parse(data);
@@ -43,7 +49,6 @@ $(document).ready(function () {
                     ? "Turma cadastrada com sucesso!"
                     : "Erro ao realizar cadastro!"
               )
-
               //location.href="./turmas.php"
            },
            error: function (data) {
@@ -62,6 +67,7 @@ function carregarTurmasNaTela(turmas) {
 
         turmasDiv.append(`
             <div class="dashbord">
+                <input type="hidden" class="hidden-turma-id" value="${turma.codigo}">
                 <div class="icon-section">
                     <i class="fa fa-users" aria-hidden="true"></i><br>
                     <small>${turma.nome}</small> <br><br>

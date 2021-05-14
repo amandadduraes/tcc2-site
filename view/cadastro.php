@@ -49,7 +49,7 @@
                         : "Erro ao realizar cadastro!"
                   )
 
-                  location.href="./login.html"
+                  location.href="./login.phpc"
                },
                error: function (data) {
                   alert("Erro inesperado, tente novamente!")

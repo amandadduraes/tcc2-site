@@ -188,7 +188,7 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
-          <p class="text-info">Conceito Polimorfismo (Parte 2)</p>
+          <p class="text-info">Conceito Polimorfismo (Parte 1)</p>
         </div>
         <div class="small-img-row">
           <div class="small-img">

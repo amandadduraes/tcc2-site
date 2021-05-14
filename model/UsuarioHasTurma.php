@@ -1,6 +1,6 @@
 <?php
 
-class UsuarioTurma {
+class UsuarioHasTurma {
 
     public $usuario_email;
     public $turma_codigo;
