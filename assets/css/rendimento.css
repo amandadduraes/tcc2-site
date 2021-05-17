@@ -61,11 +61,9 @@ h1 {
   text-align: center;
 }
 
-
 /** page structure **/
 #wrapper {
   display: block;
-  width: 850px;
   background: #fff;
   margin: 0 auto;
   padding: 10px 17px;
@@ -76,8 +74,11 @@ h1 {
   margin: 0 auto;
   font-size: 1.2em;
   margin-bottom: 15px;
-}
 
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
 #keywords thead {
   cursor: pointer;
@@ -92,6 +93,12 @@ h1 {
   padding-right: 20px;
   background-repeat: no-repeat;
   background-position: 100% 100%;
+
+  display: inline-block;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {

@@ -47,12 +47,7 @@
               localStorage.setItem("user_name", user.nome);
               localStorage.setItem("user_perfil", user.perfil);
 
-              if (user.perfil === "aluno") {
-                location.href = "turmasAluno.php";
-              } else {
-                location.href = "turmasProfessor.php";
-
-              }
+              location.href = "./turmas.php"
 
               console.log(user);
             } else {
@@ -101,7 +96,7 @@
           </div>
           <!-- <a href="#"> Esqueceu a senha?</a>
                     <br> -->
-          <a href="./cadastro.html"> Não é cadastrado? Clique aqui para se cadastrar.</a>
+          <a href="./cadastro.php" style="text-align: center;"> Não é cadastrado? Clique aqui para se cadastrar.</a>
           <input type="submit" class="btn" value="Login">
         </form>
       </div>

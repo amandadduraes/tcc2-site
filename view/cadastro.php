@@ -7,7 +7,10 @@
 
       <link rel="stylesheet" type="text/css" href="../assets/css/main1.css">
       <link rel="stylesheet" type="text/css" href="../assets/css/cadastro.css">
-      <script type="text/javascript" src="../assets/js/jquery.min.js"></script>     
+      <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="../assets/css/turmas.css">     
 
       <script type="text/javascript">
 
@@ -71,7 +74,7 @@
           
             <form  id="cadastrar" class="signup-form" name="cadastro">
                <span class="signup-form-title"> Cadastrar</span>
-               <a href="./login.html" class="link-to-login"> Já é cadastrado? Clique aqui para fazer login.</a>
+               <a href="./login.php" class="link-to-login"> Já é cadastrado? Clique aqui para fazer login.</a>
                <div class="wrap-input">
                   <span class="lable-iput">Nome</span>
                   <input id="nome" type="text" name="nome" class="input" placeholder="Nome" required/>

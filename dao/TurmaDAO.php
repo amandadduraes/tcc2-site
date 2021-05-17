@@ -19,7 +19,7 @@ class TurmaDAO {
             $sql = $conn->prepare(
                 'SELECT * FROM turma 
                  WHERE turma.professor_email = ?
-                 ORDER BY turma.criado_em'
+                 ORDER BY turma.criado_em DESC'
             ); 
             $sql->bindValue(1, $email);
 
@@ -59,7 +59,7 @@ class TurmaDAO {
                  INNER JOIN usuario_has_turma userTurma
                     ON userTurma.turma_codigo = turma.codigo
                  WHERE userTurma.usuario_email = ?
-                 ORDER BY turma.criado_em'
+                 ORDER BY turma.criado_em DESC'
             ); 
             $sql->bindValue(1, $email);
 
@@ -92,7 +92,6 @@ class TurmaDAO {
 
     public static function criarTurma(Turma $novaTurma) {
         try {
-            
             $conn = Connection::getConn();
 
             $sql = $conn->prepare("INSERT INTO turma(codigo,nome,senha,professor_email,criado_em) VALUES (?, ?, ?,?,?)");
@@ -101,13 +100,12 @@ class TurmaDAO {
             $sql->bindValue(3, $novaTurma->senha);
             $sql->bindValue(4, $novaTurma->professor_email);
             $sql->bindValue(5, $novaTurma->criado_em);
-            
 
             $res = $sql->execute();
             
-            echo $res;
             return $res;
-        } catch(Exception $e) {
+        }
+        catch(Exception $e) {
             echo $e;
             $sql->debugDumpParams();
         }

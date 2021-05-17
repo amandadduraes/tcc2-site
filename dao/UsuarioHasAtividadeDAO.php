@@ -83,7 +83,7 @@ class UsuarioHasAtividadeDAO {
         }
     }
 
-    protected static function findByTurmaCodigo($codigo){
+    protected static function findByTurmaCodigo($usuario_email, $atividadeId){
         try{
 
             $conn = Connection::getConn();

@@ -18,4 +18,27 @@ class UsuarioHasTurmaDAO{
         }
 
     }
+
+    public static function delete(array $args){
+        if($args[0] == "deleteByCodigoTurma"){
+            try {
+                $conn = Connection::getConn();
+        
+                $delete = $conn->prepare(
+                  'DELETE FROM usuario_has_turma
+                   WHERE turma_codigo = ?'
+                );
+        
+                $delete->bindValue(1, $args[1]);
+        
+                $delete->execute();
+        
+                return $delete->rowCount() == '0' ? FALSE:TRUE;
+        
+            } catch ( Exception $e ) {
+                echo $e->getMessage();
+            }
+        }
+    }
+
 }

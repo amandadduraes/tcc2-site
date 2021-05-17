@@ -42,3 +42,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     }
 }
+  
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE'){
+    parse_str(file_get_contents('php://input'), $_DELETE);
+    
+    if(array_key_exists("deleteByCodigoTurma",$_DELETE)){
+        $codigo = $_DELETE["codigoTurma"];
+        $res["res"] = UsuarioHasTurmaDAO::delete(array("deleteByCodigoTurma", $codigo));
+        
+        echo json_encode($res);
+    }
+}

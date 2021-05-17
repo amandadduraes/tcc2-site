@@ -34,6 +34,9 @@ if($usuario == 'professor'){
 }
 ?>
     
+    <input type="hidden" name="success_url" value="./mais.php"/>
+    <input type="hidden" name="error_url" value="./mais.php?err=1"/>
+
     <div class="container">
       <span class="big-circle"></span>
       <img src="../assets/img/corpo.png" class="square" alt="" />
@@ -69,9 +72,6 @@ if($usuario == 'professor'){
           <span class="circle two"></span>
 
           <form action="https://postmail.invotes.com/send" method="post" id="email_form" autocomplete="off">
-          
-            
-
             <h3 class="title">Contato</h3>
             <div class="input-container">
             <input type="text" class="input" name="subject" placeholder="Assunto" />
@@ -101,6 +101,6 @@ if($usuario == 'professor'){
               submitButton.disabled = true;
           }, 1);
       });
-  </script> 
+  </script>
   </body>
 </html>

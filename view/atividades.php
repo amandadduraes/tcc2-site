@@ -25,7 +25,7 @@
                       </div>
                       <div class="details">
                         <h3>${descricao}</h3>
-                        <a href="./perguntas.html?ativ=${id}">Iniciar Quiz</a>
+                        <a href="./perguntas.php?ativ=${id}">Iniciar Quiz</a>
                       </div>
                     </li>
                   `)
@@ -35,7 +35,7 @@
           });
         </script>
 
-        <title>Atividades Teóricas</title>
+        <title>Atividades</title>
     </head>
 
     <body>
@@ -65,9 +65,9 @@ if($usuario == 'professor'){
           <section>
               <div class="leftBox">
                   <div class="content">
-                      <h1>Atividades Teóricas</h1>
+                      <h1>Atividades</h1>
                       <p>De acordo com o aprendizado em sala de aula nesta seção o aluno deverá
-                          aplicar todo o conhecimento adquirido em diversas atividades teóricas 
+                          aplicar todo o conhecimento adquirido em diversas atividades 
                           relacionadas ao Paradigma de Orientação a Objetos.
                       </p>
                   </div>  

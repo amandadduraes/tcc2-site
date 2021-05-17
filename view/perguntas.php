@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/css/perguntas.css">
     <script src="../assets/js/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/main1.css">
 
     <script>
         let questions = [];
@@ -99,6 +100,26 @@
             <button id="iniciarQuiz" class="restart">Continuar</button>
         </div>
     </div>
+
+    <body>
+        <?php
+        include_once "menu.php";
+        include_once "../model/Usuario.php";
+        session_start();
+      
+        if (!isset($_SESSION["user"])) {
+          header("Location: ../index.php");
+        }
+      
+        $usuario = $_SESSION["user_perfil"];
+      
+      
+        if ($usuario == 'professor') {
+          navProfessor();
+        } else {
+          navAluno();
+        }
+        ?>
 
     <!-- Quiz Box -->
     <div class="quiz_box">

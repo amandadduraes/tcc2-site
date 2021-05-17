@@ -49,7 +49,7 @@ if($usuario == 'professor'){
                   <span class="focus-input"></span>
                </div>
                <input id="pesquisar" type="submit" class="btn" value="Cadastrar na Turma">
-               <a href="./login.html" class="link-to-login"> Já é cadastrado? Clique aqui para fazer login.</a>
+              <!--<a href="./login.html" class="link-to-login"> Já é cadastrado? Clique aqui para fazer login.</a>-->
             </form>
          </div>
       </div>

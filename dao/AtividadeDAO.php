@@ -39,4 +39,47 @@ class AtividadeDAO {
         var_dump($e);
 		}	
   }
+
+  public static function buscarAtividadesDaTurma($turmaCodigo){
+    try{
+      $conn = Connection::getConn();
+        
+      $sql = $conn->prepare('
+        SELECT ativ.id, ativ.descricao
+        FROM atividade ativ
+        WHERE ativ.turma_codigo = ?
+      ');
+
+      $sql->bindValue(1, $turmaCodigo);
+      $sql->execute();
+
+      return $sql->fetchAll();
+    }
+    catch(Exception $ex){
+      var_dump($ex);
+    }
+  }
+
+  public static function buscarNotasDeUmUsuarioNaTurma($usuarioEmail, $turmaCodigo){
+    try{
+        $conn = Connection::getConn();
+        
+        $sql = $conn->prepare('
+          SELECT userAtiv.atividade_id, userAtiv.nota
+          FROM usuario_has_atividade userAtiv
+            INNER JOIN atividade ativ on ativ.id = userAtiv.atividade_id
+          WHERE userAtiv.usuario_email = ? and ativ.turma_codigo = ?
+        ');
+
+        $sql->bindValue(1, $usuarioEmail);
+        $sql->bindValue(2, $turmaCodigo);
+        
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+    catch(Exception $ex){
+      var_dump($ex);
+    }
+  }
 }

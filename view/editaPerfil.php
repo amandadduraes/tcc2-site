@@ -73,7 +73,7 @@
 
     <div class="container-cadastro">
         <div class="signup-more">
-            <img src="../assets/img/undraw_open_source_1qxw.svg" alt="">
+            <img src="../assets/img/editaPerfil.svg"alt="">
         </div>
         <div class="wrap-signup">
 

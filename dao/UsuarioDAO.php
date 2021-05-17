@@ -108,4 +108,25 @@ class UsuarioDAO {
             }
         }
     }
+
+    public static function buscarUsuariosDaTurma($turmaCodigo) {
+        try {
+            $conn = Connection::getConn();
+
+            $sql = $conn->prepare('
+                SELECT user.email, user.nome
+                FROM usuario user
+                    INNER JOIN usuario_has_turma userTurma ON userTurma.usuario_email = user.email
+                WHERE userTurma.turma_codigo = ?
+            ');
+
+            $sql->bindValue(1, $turmaCodigo);
+            $sql->execute();
+
+            return $sql->fetchAll();
+        }
+        catch(Exception $ex){
+            var_dump($ex);
+        }
+    }
 }
