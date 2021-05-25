@@ -12,9 +12,10 @@ $(document).ready(function(){
 
             $("#title").text(`Rendimentos da Turma ${data.turmaNome}`);
 
-            data.atividades.forEach(ativ => {
+            data.atividades.forEach((ativ, index) => {
+                console.log({index, ativ})
                 const descricao = ativ.descricao;
-                $("#keywords > thead > tr").append(`<th><span title="${descricao}">${descricao}</span></th>`);
+                $("#keywords > thead > tr").append(`<th><span title="${descricao}">Atividade #${index + 1}</span></th>`);
             });
 
             data.usuarios.forEach(user => {

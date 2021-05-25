@@ -1,11 +1,11 @@
 <?php 
+session_start();
 
-require_once (__DIR__."/../dao/TurmaDAO.php");
-require_once (__DIR__."./../model/Turma.php");
+require_once(__DIR__."/../dao/TurmaDAO.php");
+require_once(__DIR__."./../model/Turma.php");
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (array_key_exists ("findByEmail", $_GET)) {
-            session_start();
             $perfilUsuarioLogado = $_SESSION["user_perfil"];
             $metodoRead = $perfilUsuarioLogado == "professor"
                 ? "findByProfessorEmail"
@@ -14,7 +14,9 @@ require_once (__DIR__."./../model/Turma.php");
             $turmas = TurmaDAO::read(array($metodoRead, $_GET["findByEmail"])); 
             if (isset($turmas)) {
                 echo json_encode($turmas, JSON_UNESCAPED_UNICODE);
-            } 
+            }
+            else
+                echo "[]";
         }
     }
 
@@ -29,7 +31,6 @@ require_once (__DIR__."./../model/Turma.php");
                 return;
             }
 
-            session_start();
             $novaTurma = new Turma();
             $novaTurma->nome = $nome;
             $novaTurma->senha = $senha;

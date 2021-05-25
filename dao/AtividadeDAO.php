@@ -1,8 +1,8 @@
 <?php
 
-require_once (__DIR__."/./Connection.php");
-require_once (__DIR__."/../model/Atividade.php");
 
+require_once(__DIR__."/Connection.php");
+require_once(__DIR__."/../model/Atividade.php");
 class AtividadeDAO {
   public static function getByTurmaCodigo($turmaCodigo) {
     try {
@@ -10,7 +10,8 @@ class AtividadeDAO {
 
 			$sql = $conn->prepare(
 				'SELECT * FROM atividade
-				 WHERE turma_codigo = ?'
+				 WHERE turma_codigo = ?
+         ORDER BY id'
       );
       
       $sql->bindValue(1, $turmaCodigo);

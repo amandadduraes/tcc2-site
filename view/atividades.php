@@ -4,43 +4,41 @@
       <link rel="stylesheet" type="text/css" href="../assets/css/teorica.css">
       <link rel="stylesheet" type="text/css" href="../assets/css/main1.css">
       <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+      <title>Atividades</title>
       
-
-        <script src="../assets/js/jquery.min.js"></script>
-        <script>
-          $(document).ready(function () {
-            $.ajax({
-              url: "../controller/AtividadeController.php",
-              type: "GET",
-              data: {
-                getByTurmaCodigo: 123,
-              },
-              success: function (data) {
-                const atividades = JSON.parse(data)
-                atividades.forEach(({ id, descricao }, i) => {
-                  $(".events ul").append(`
-                    <li>
-                      <div class="time">
-                          <h2>  <br> <span>${i + 1}</span></h2>
-                      </div>
-                      <div class="details">
-                        <h3>${descricao}</h3>
-                        <a href="./perguntas.php?ativ=${id}">Iniciar Quiz</a>
-                      </div>
-                    </li>
-                  `)
-                });
-              }
-            })
-          });
-        </script>
-
-        <title>Atividades</title>
+      <script src="../assets/js/jquery.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $.ajax({
+            url: "../controller/AtividadeController.php",
+            type: "GET",
+            data: {
+              getByTurmaCodigo: 'poo1',
+            },
+            success: function (data) {
+              const atividades = JSON.parse(data)
+              atividades.forEach(({ id, descricao }, i) => {
+                $(".events ul").append(`
+                  <li>
+                    <div class="time">
+                        <h2>  <br> <span>${i + 1}</span></h2>
+                    </div>
+                    <div class="details">
+                      <h3>${descricao}</h3>
+                      <a href="./perguntas.php?ativ=${id}">Iniciar Quiz</a>
+                    </div>
+                  </li>
+                `)
+              });
+            }
+          })
+        });
+      </script>
     </head>
-
     <body>
         
 <?php
+error_reporting(E_ALL ^ E_WARNING);
 include_once "menu.php";
 include_once "../model/Usuario.php";
 session_start();
@@ -59,9 +57,6 @@ if($usuario == 'professor'){
     navAluno();
 }
 ?>
-
-         
-
           <section>
               <div class="leftBox">
                   <div class="content">

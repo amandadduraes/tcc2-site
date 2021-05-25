@@ -1,6 +1,7 @@
 <?php
 
-require_once (__DIR__."./Connection.php");
+
+require_once(__DIR__."/Connection.php");
 
 class UsuarioHasAtividadeDAO {
     public static function create(UsuarioHasAtividade $userAtiv) {
@@ -22,7 +23,7 @@ class UsuarioHasAtividadeDAO {
     public static function read(array $args) {
         switch($args[0]) {
             case "findById": return self::findById($args[1], $args[2]);
-            case "findByTurmaCodigo": return self::findByTurmaCodigo($args[1]);
+            case "findByTurmaCodigo": return self::findByTurmaCodigo($args[1], $args[2]);
         }
     }
 
@@ -55,27 +56,24 @@ class UsuarioHasAtividadeDAO {
 
     protected static function findById($usuario_email, $atividadeId) {
         try {
-
             $conn = Connection::getConn();
-            
-            $sql = $conn->prepare('
-            SELECT *
-            FROM usuario_has_atividade
-            WHERE usuario_has_atividade.usuario_email = ?
-                AND usuario_has_atividade.atividade_id = ?
-            ');
-            $sql->bindValue(1, $usuario_email);
-            $sql->bindValue(2, $atividadeId);
-            
+            $str = "
+                SELECT *
+                    FROM usuario_has_atividade
+                WHERE usuario_has_atividade.usuario_email = '{$usuario_email}'
+                    AND usuario_has_atividade.atividade_id = {$atividadeId}
+            ";
+            $sql = $conn->prepare($str);
             $res = $sql->execute();
 
-            if($res == 1) {
-                if($sql->rowCount() > 0) {
-                    $userAtiv = new UsuarioHasAtividade();
-                    return $userAtiv->carregarObjetoDoBanco($sql->fetch());
-                }
-                else
-                    return NULL;
+            if($res == 1 && $sql->rowCount() > 0) {
+                $userAtiv = new UsuarioHasAtividade();
+                $userAtiv->carregarObjetoDoBanco($sql->fetch());
+
+                return $userAtiv;
+            }
+            else {
+                return NULL;
             }
         }
         catch(Exception $ex) {

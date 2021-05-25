@@ -1,17 +1,14 @@
 <?php
-require_once(__DIR__."/../DAO/TurmaDAO.php");
-require_once(__DIR__."/../DAO/UsuarioHasTurmaDAO.php");
-require_once(__DIR__."/../model/UsuarioHasTurma.php");
+session_start();
 
+require_once(__DIR__."/../dao/TurmaDAO.php");
+require_once(__DIR__."/../dao/UsuarioHasTurmaDAO.php");
+require_once(__DIR__."/../model/UsuarioHasTurma.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if (array_key_exists("save", $_POST)){
-        session_start();
-
         $senha = filter_input (INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
         $codigo = filter_input (INPUT_POST, 'codigo', FILTER_SANITIZE_STRING); 
-
-        // echo $codigo ."<br>" .$senha;
     
         $turma = TurmaDAO::buscarTurmaCodigo($codigo);
         if(isset($turma)){
@@ -38,16 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
 
         echo json_encode($res);
-       // $res = TurmaDAO::criarUsuarioTurma(array($_POST'[$senha ,$codigo]))
-
     }
-}
-  
-if ($_SERVER['REQUEST_METHOD'] === 'DELETE'){
-    parse_str(file_get_contents('php://input'), $_DELETE);
-    
-    if(array_key_exists("deleteByCodigoTurma",$_DELETE)){
-        $codigo = $_DELETE["codigoTurma"];
+
+    if(array_key_exists("deleteByCodigoTurma", $_POST)) {
+        $codigo = $_POST["codigoTurma"];
         $res["res"] = UsuarioHasTurmaDAO::delete(array("deleteByCodigoTurma", $codigo));
         
         echo json_encode($res);

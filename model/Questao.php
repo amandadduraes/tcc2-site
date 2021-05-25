@@ -1,6 +1,7 @@
 <?php
 
-require_once (__DIR__."/../dao/AlternativaDAO.php");
+
+require_once(__DIR__."/../dao/AlternativaDAO.php");
 
 class Questao {
     public $id;

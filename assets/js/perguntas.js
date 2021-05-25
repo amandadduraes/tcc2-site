@@ -91,8 +91,9 @@ next_btn.onclick = ()=>{
         const atividadeId =  $("#hiddenAtividadeId").val()
         $.ajax({
             url: "../controller/UsuarioHasAtividadeController.php",
-            method: "PUT",
+            method: "POST",
             data: {
+                update: 1,
                 nota: userScore/questions.length * 100,
                 atividadeId,
             }

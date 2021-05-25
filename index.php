@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 session_destroy();
 ?>
@@ -12,7 +13,6 @@ session_destroy();
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
-
 <body>
 
   <div class="container">

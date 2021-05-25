@@ -98,7 +98,6 @@ h1 {
   width: 100px;
   white-space: nowrap;
   overflow: hidden !important;
-  text-overflow: ellipsis;
 }
 
 #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {

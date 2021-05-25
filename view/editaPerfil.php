@@ -20,14 +20,13 @@
                 $.ajax({
                     url: "../controller/UsuarioController.php",
                     data: {
-                        edit: 1,
+                        update: 1,
                         nome,
                         senha,
                         instituicao
                     },
-                    method: "PUT",
+                    method: "POST",
                     success: function(data) {
-                        console.log(data)
                         if(data && JSON.parse(data)) {
                             const response = JSON.parse(data)
                             if(response.res) {
@@ -51,6 +50,7 @@
 
 <body>
 <?php
+
     include_once "menu.php";
     
     session_start();

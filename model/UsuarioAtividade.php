@@ -1,5 +1,6 @@
 <?php
 
+
 class UsuarioAtividade {
     public $usuario_email;
     public $atividade_id;

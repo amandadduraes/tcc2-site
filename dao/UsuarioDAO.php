@@ -1,7 +1,8 @@
 <?php
 
-require_once (__DIR__."./Connection.php");
-require_once (__DIR__."./../model/Usuario.php");
+
+require_once(__DIR__."/Connection.php");
+require_once(__DIR__."/../model/Usuario.php");
 
 class UsuarioDAO {
     public static function criarUsuario( Usuario $novoUsuario ) {
@@ -123,7 +124,12 @@ class UsuarioDAO {
             $sql->bindValue(1, $turmaCodigo);
             $sql->execute();
 
-            return $sql->fetchAll();
+            if($sql->rowCount() > 0) {
+                return $sql->fetchAll();
+            }
+            else {
+                return NULL;
+            }
         }
         catch(Exception $ex){
             var_dump($ex);

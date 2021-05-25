@@ -1,4 +1,14 @@
-
+<?php
+    include_once "menu.php";
+    include_once "../model/Usuario.php";
+    session_start();
+    
+    if (!isset($_SESSION["user"])) {
+        header("Location: ../index.php");
+    }
+    
+    $usuario = $_SESSION["user_perfil"];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -60,6 +70,7 @@
                     url: "../controller/UsuarioHasAtividadeController.php",
                     method: "POST",
                     data: {
+                        save: 1,
                         atividadeId
                     },
                     success: function(data) {
@@ -83,7 +94,11 @@
     <input type="hidden" id="hiddenAtividadeId">
   <img src="../assets/img/question.svg" alt="" class="wave">
     <!-- start Quiz button -->
-    <div class="start_btn"><button>Iniciar Quiz!</button></div>
+    <div class="centralizar">
+        <div class="start_btn">
+            <button>Iniciar Quiz!</button>
+        </div>
+    </div>
 
     <!-- Info Box -->
     <div class="info_box">
@@ -96,22 +111,13 @@
             <div class="info">5. Ao finalizar o rendimento do aluno será exibido.</div>
         </div>
         <div class="buttons">
-            <button class="quit">Sair</button>
+            <button class="quit">Cancelar</button>
             <button id="iniciarQuiz" class="restart">Continuar</button>
         </div>
     </div>
 
     <body>
         <?php
-        include_once "menu.php";
-        include_once "../model/Usuario.php";
-        session_start();
-      
-        if (!isset($_SESSION["user"])) {
-          header("Location: ../index.php");
-        }
-      
-        $usuario = $_SESSION["user_perfil"];
       
       
         if ($usuario == 'professor') {
@@ -160,7 +166,7 @@
         </div>
         <div class="buttons">
             <!-- <button class="restart">Replay Quiz</button> -->
-            <button class="quit">Sair</button>
+            <button class="quit">Tentar Novamente</button>
         </div>
     </div>
 

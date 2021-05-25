@@ -1,6 +1,9 @@
 <?php
 
-class UsuarioHasTurmaDAO{
+
+require_once(__DIR__."/Connection.php");
+
+class UsuarioHasTurmaDAO {
     public static function create(UsuarioHasTurma $usuarioTurma){
         try {
             $conn = Connection::getConn();

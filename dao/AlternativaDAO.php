@@ -1,6 +1,7 @@
 <?php
 
-require_once (__DIR__."/./Connection.php");
+
+require_once (__DIR__."/Connection.php");
 require_once (__DIR__."/../model/Alternativa.php"); 
 
 

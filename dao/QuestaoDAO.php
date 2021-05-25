@@ -1,8 +1,9 @@
 <?php
 
-require_once (__DIR__."/./Connection.php");
-require_once (__DIR__."/../model/Questao.php");
-require_once (__DIR__."/../dao/AtividadeDAO.php");
+
+require_once(__DIR__."/Connection.php");
+require_once(__DIR__."/../model/Questao.php");
+require_once(__DIR__."/../dao/AtividadeDAO.php");
 
 class QuestaoDAO {
   public static function getByAtividadeId($atividadeId) {

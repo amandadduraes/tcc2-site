@@ -1,5 +1,6 @@
 <?php
 
+
 require_once(__DIR__."/Connection.php");
 require_once(__DIR__."/../model/Turma.php");
 
@@ -41,10 +42,6 @@ class TurmaDAO {
                     return "Erro";
                 }
             }
-            else    
-                echo "null";
-
-             
         } catch (Exception $e) {
             echo $e;
         }
@@ -81,10 +78,6 @@ class TurmaDAO {
                     return "Erro";
                 }
             }
-            else    
-                echo "null";
-
-             
         } catch (Exception $e) {
             echo $e;
         }
@@ -116,7 +109,7 @@ class TurmaDAO {
             $conn = Connection::getConn();
     
             $sql = $conn->prepare("SELECT * FROM turma WHERE codigo = ?");
-            $sql->bindValue(1,$codigo);
+            $sql->bindValue(1, $codigo);
     
             $res = $sql->execute();
 

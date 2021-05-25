@@ -1,5 +1,6 @@
 <?php
 
+
 class Alternativa {
     public $id;
     public $descricao;

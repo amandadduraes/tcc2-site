@@ -19,7 +19,7 @@ $(document).ready(function () {
 
             $.ajax({
                 url: "../controller/UsuarioHasTurmaController.php",
-                method: "DELETE", 
+                method: "POST", 
                 data: {
                     deleteByCodigoTurma: 1,
                     codigoTurma
@@ -81,7 +81,6 @@ $(document).ready(function () {
            },
            error: function (data) {
               alert("Erro inesperado, tente novamente!")
-              console.log(data)
            }
         })
       })
@@ -104,7 +103,9 @@ $(document).ready(function () {
                     const data = JSON.parse((response))
                     alert(data.msg);
 
-                    window.location.reload();
+                    if(!data.error) {
+                        window.location.reload();
+                    }
                 }
             }
         });

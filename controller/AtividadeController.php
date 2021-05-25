@@ -1,6 +1,6 @@
 <?php
 
-require_once (__DIR__."/../dao/AtividadeDAO.php");
+require_once(__DIR__."/../dao/AtividadeDAO.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   if(array_key_exists("getByTurmaCodigo", $_GET)) {

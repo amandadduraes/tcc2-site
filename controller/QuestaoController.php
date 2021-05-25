@@ -1,6 +1,6 @@
 <?php
 
-require_once (__DIR__."/../dao/QuestaoDAO.php");
+require_once(__DIR__."/../dao/QuestaoDAO.php");
 
 if($_SERVER["REQUEST_METHOD"] === "GET") {
     if(array_key_exists("getByAtividadeId", $_GET)) {
