@@ -23,7 +23,7 @@ session_destroy();
       <a href="./view/cadastro.php" class="btn">Cadastro</a>
       <a href="view/login.php" class="btn">Login</a>
       
-      <a class="btn"><i class="fa fa-question-circle" aria-hidden="true" title="Ajuda"></i></a> 
+      <a href = "./view/Ajuda.html" class="btn"><i class="fa fa-question-circle" aria-hidden="true" title="Ajuda"></i></a> 
     </div>
   </div>
 </body>

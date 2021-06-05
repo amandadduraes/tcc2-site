@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/css/ajuda.css">
+    <title>Boas Práticas</title>
+</head>
+<body>
+    <a class="link-to-login" href="./material.php"> Voltar</a>
+    <h1>Exemplos de boas práticas na Programação Orientada a Objetos e Java:</h1>
+
+
+<p>1 – Prefira listar os campos de uma classe primeiro, pois à medida que você ler o código, verá os nomes e os 
+    tipos das variáveis antes de utilizar os métodos na classe, facilitando a leitura do seu código; </p>
+<p>2 – Coloque uma linha em branco entre as declarações de método para separar os métodos e aprimorar a legibilidade do programa;</p>
+<p>3 – O tipo declarado de uma variável indica se a variável é de um tipo primitivo ou tipo de referência;</p>
+<p>4 - Forneça um construtor para assegurar que as variáveis de instância da sua classe sejam adequadamente inicializadas
+     com valores significativos quando cada novo objeto de sua classe for criado;</p>
+<p>5 - Métodos podem retornar no máximo um valor, mas o valor retornado poderia ser uma referência a um objeto 
+    que contêm muitos valores;</p>
+<p>6 – Usar constantes de enumeração em vez de valores literais torna os programas mais fáceis de entender;</p>
+<p>7 - Variáveis constantes também são chamadas de constantes nomeadas. Frequentemente elas tornam os programas mais
+     legíveis do que programas que utilizam valores literais;</p>
+<p>8 – Evite nomes de parâmetros ou variáveis locais em métodos que conflitem com nomes de campos. Isso ajuda a evitar bugs;</p>
+<p>9 - Um construtor pode chamar métodos da classe;</p>
+<p>10 – Quando um objeto de uma classe contém uma referência a um outro objeto da mesma classe, o primeiro objeto pode 
+    acessar todos os dados e métodos do segundo objeto, inclusive aqueles que são private;</p>
+<p>11 – Ao implementar um método de uma classe, utilize os métodos set e get da classe para acessar os dados private da classe;</p>
+<p>12 – Se apropriado, forneça métodos public para alterar e recuperar os valores de variáveis de instância private;</p>
+<p>13 – Os métodos set e get ajudam a criar classes que são mais fáceis de depurar e de manter;</p>
+<p>14 – Use uma variável static quando todos os objetos de uma classe precisarem utilizar a mesma cópia da variável;</p>
+<p>15 - Variáveis e métodos de classe static existem e podem ser utilizados, mesmo se nenhum objeto dessa classe tiver sido 
+    instanciado;</p>
+<p>16 – Invoque cada método static usando o nome de classe e um ponto(.) para a enfatização de que o método sendo chamado
+     é um método static;</p>
+
+<p>17 – Declarar uma variável de instância como final ajuda a impor o princípio do menor privilégio.
+     Se uma variável de instância não deve ser modificada, declare- a como sendo final para evitar modificação;</p>
+<p>18 – Um campo final também deverá ser declarado como static se ele for inicializado em sua declaração com um valor que
+     é o mesmo de todos os objetos da classe. Depois dessa inicialização seu valor nunca poderá mudar;</p>
+<p>19 – Os métodos de uma subclasse não acessam membros private diretamente da super classe. Uma subclasse pode alterar
+     o estado de variáveis de instância private da superclasse somente por meio de métodos não private fornecidos na 
+     superclasse e herdados pela subclasse;</p>
+<p>20 – Declarar variáveis de instância private ajuda-lhe a testar, depurar e modificar sistemas corretamente;</p>
+<p>21 – Declare métodos sobrescritos com a notação @Override para assegurar em tempo de compilação que você 
+    definiu as assinaturas corretamente;</p>
+<p>22 – Sempre é melhor localizar erros em tempo de compilação em vez de tempo de execução;</p>
+<p>23 – Com a herança, as variáveis de instância comuns e os métodos de todas as classes na hierarquia são 
+    declarados em uma superclasse. Quando são feitas modificações nessas características comuns na superclasse, as
+     subclasses herdam, portanto, as modificações;</p>
+<p>24 – Utilize o modificador de acesso protected quando uma superclasse precisa fornecer um método somente para suas subclasses 
+    e outras classes no mesmo pacote;</p>
+<p>25 – Declarar as variáveis de instância da superclasse private permite a implementação de superclasse dessas
+     variáveis de instância para alterar sem afetar as implementações de subclasse;</p>
+<p>26 – Quando possível, não inclua variáveis de instâncias protected numa superclasse. Em vez disso, inclua métodos 
+    não private que acessam as variáveis de instância private;</p>
+<p>27 – Se as subclasses são maiores do que precisam ser, recursos de memória e de processamento podem ser desperdiçados. 
+    Estenda a superclasse que contém a funcionalidade mais próxima daquilo de que você precisa;</p>
+<p>28 – O polimorfismo permite tratar as generalidades e deixar que o ambiente de tempo de execução trate as especificidades.
+     Você pode instruir objetos a se comportarem de maneiras apropriadas para esses objetos, sem nem conhecer seus tipos;</p>
+<p>29 – O polimorfismo promove extensibilidade;</p>
+<p>30 – Uma classe abstrata declara atributos e comportamentos comuns das várias classes em uma hierarquia de classes.
+     Em geral, uma classe abstrata contém um ou mais métodos abstratos que as subclasses devem sobrescrever se elas precisarem
+      ser concretas;</p>
+<p>31 - Ao declarar um método em uma interface, escolha um nome de método que descreva o propósito do método de uma maneira 
+    geral, pois o método pode ser implementado por muitas classes não relacionadas.</p>
+
+<p>32 – Todos os objetos de uma classe que implementam múltiplas interfaces têm o relacionamento do tipo “é um” com cada 
+    tipo de interface implementado;</p>
+<p>33 – Quando um parâmetro de método é declarado como uma superclasse ou tipo de interface, o método processa o objeto
+     recebido polimorficamente como um argumento;</p>
+<p>34 – Utilizando uma referência de superclasse, podemos invocar qualquer método declarado na superclasse e suas superclasses;</p>
+<p>35 – O tratamento de exceções ajuda a aprimorar a tolerância a falhas de um programa;</p>
+<p>36 – Se os problemas potenciais ocorrem raramente, mesclar o programa e a lógica do tratamento de erro pode degradar o 
+    desempenho do programa, pois o programa deve potencialmente realizar testes frequentes para determinar se a tarefa foi
+     executada corretamente e se a próxima tarefa pode ser realizada;</p>
+<p>37 – As exceções emergem pelo código explicitamente mencionado em um bloco try, por chamadas para outros métodos, por
+     chamadas de métodos profundamente aninhadas iniciadas pelo código em um bloco try;</p>
+<p>38 – Utilizar um nome de parâmetro de exceção que reflita o tipo do parâmetro promove a clareza lembrando-lhe do 
+    tipo de exceção em um tratamento;</p>
+<p>39 – Incorpore sua estratégia de tratamento de exceções ao sistema desde o princípio do processo de design.
+     Pode ser difícil incluir um tratamento de exceções depois que um sistema é implementado;</p>
+<p>40 – O tratamento de exceções fornece uma técnica única e uniforme para processamento de problemas. 
+    Isso ajuda a programadores que trabalham em grandes projetos a entender melhor o código;</p>
+<p>41 – Trabalhar com exceções verificadas resulta em um código mais robusto do que aquele que seria criado 
+    se fosse capaz de ignorar exceções;</p>
+<p>42 – Se o método chamar outros métodos que lançam explicitamente exceções verificadas, essas exceções 
+    devem ser capturadas ou declaradas no método;</p>
+<p>43 – Embora o compilador não imponha o requisito capture ou declare para as exceções não verificadas,
+     ele fornece o código de tratamento de exceções adequado quando se sabe que tais exceções são possíveis;</p>
+<p>44 – O bloco finally é um lugar ideal para liberar recursos adquiridos em um bloco try, o que ajuda a eliminar 
+    vazamento de recurso;</p>
+<p>45 – Sempre libere um recurso explicitamente e logo que ele não for necessário. Isso tornará recursos disponíveis para 
+    a reutilização aprimorando a sua utilização;</p>
+<p>46 – As exceções podem ser lançadas a partir de construtores, evitando assim que um objeto seja formado inadequadamente;</p>
+<p>47 – Se possível, indique as exceções provenientes de seus métodos utilizando classes de exceção existentes, em vez de criar;</p>
+<p>48 – Associar cada tipo de mal funcionamento sério em tempo de execução com uma classe ‘Exception’ propriamente
+     identificada aprimora a clareza do programa;</p>
+<p>49 – Por convenção, todos os nomes de classe de exceções devem terminar com a palavra ‘Exception’;</p>
+<p>50 – O Java trata todos os literais string com o mesmo conteúdo de um único objeto String que tem muitas referências a ele,
+     economizando memória;</p>
+<p>51 - Não é necessário copiar um objeto String existente. Os objetos String são imutáveis, ou seja, seu conteúdo de caractere não 
+    pode ser alterado depois que são criados, porque a classe String não oferece nenhum método 
+    que permita que o conteúdo de um objeto String seja modificado;</p>
+<p>52 – O Java pode realizar certas otimizações que envolvem objetos String pois ele sabe que esses objetos não se alterarão. 
+    Strings devem ser utilizadas se os dados não se alterarem;</p>
+<p>53 – Em programas que frequentemente utilizam a concatenação de strings, ou outras modificações de strings, em geral, é mais 
+    eficiente implementar as modificações com a classe StringBuilder;</p>
+<p>54 – Aumentar a capacidade de uma StringBuilder dinamicamente pode exigir um tempo relativamente longo, pois ao executar um 
+    longo número dessas operações podem degradar o desempenho de um aplicativo;</p>
+
+    <h5>Todas as referências utilizadas foram do livro Java como Programar 8 edição do autor Paul Deitel / Harvey Deitel</h5>
+
+</body>
+</html>

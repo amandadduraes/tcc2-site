@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/css/ajuda.css">
+    <title>Material Complementar</title>
+</head>
+<body>
+     <a class="link-to-login" href="./material.php"> Voltar</a>
+    <h1> Exemplos de más práticas na Programação Orientada a Objetos e Java:</h1>
+    <p>1 – A declaração de mais de uma classe public em um mesmo arquivo resulta em um erro de compilação;</p>
+    <p>2 – Caso o número de argumentos em uma chamada de método não corresponder 
+    ao número de parâmetros em sua declaração de método, ocorrerá um erro de compilação;</p>
+    <p>3 - Ocorrerá um erro de compilação se o tipo de qualquer argumento em uma chamada 
+    de método não for consistente com o tipo do parâmetro correspondente na declaração do método;</p>
+    <p>4 – A tentativa de utilizar uma variável local não inicializada resultará em um erro de compilação;</p>
+    <p>5 – Um método que realiza uma única tarefa é mais fácil de testar e depurar do que aquele que realiza muitas tarefas;</p>
+    <p>6 – Declarar parâmetros de método do mesmo tipo como float a, b ao invés de float a, float b é um erro de sintaxe;</p>
+    <p>7 - É um erro de sintaxe dividir uma String em linhas, caso seja necessário,
+     faça a divisão de uma String em várias unidades menores e utilize a concatenação de String para obter a String desejada;</p>
+    <p>8 – Confundir o operador + utilizado na concatenação de string com o operador + utilizado
+         para a adição de resultados pode resultar em resultados estranhos. </p>
+    <p>9 – Converter um valor do tipo primitivo em um outro tipo primitivo pode alterar o valor se o novo tipo não for válido;</p>
+    <p>10 – Um erro de compilação ocorre quando uma variável local é declarada mais de uma vez em um método;</p>
+    <p>11- Declarar métodos sobrecarregados com listas de parâmetros idênticas
+         é um erro de compilação independentemente de os tipos de retorno serem diferentes;</p>
+    <p>12 – Um índice precisa ser um valor int ou um valor de
+         um tipo que possa ser promovido a int, caso contrário ocorrerá um erro de compilação;</p>
+    <p>13 - O Java avalia operadores da esquerda para a direita. Fique atento quanto a esta questão;</p>
+    <p>14 – Declarar múltiplas variáveis de array em uma única declaração pode levar a erros sutis;</p>
+    <p>15 – Atribuir um valor a uma variável constante depois de ela ter sido inicializada é um erro de compilação;</p>
+    <p>16 – Tentar utilizar uma constante antes de ela ser inicializada é um erro de compilação;</p>
+    <p>17 – Uma tentativa por parte de um método que
+         não é membro de uma classe de acessar um membro private dessa classe é um erro de compilação;</p>
+    <p>18 – Frequentemente é um erro de lógica quando um método contém um parâmetro ou variável local com o mesmo nome
+         de um campo da classe, neste caso, utilize a referência this caso deseje acessar o campo da classe;</p>
+    <p>19 - É um erro de sintaxe se this for utilizado no corpo de um construtor para chamar um outro construtor da mesma classe
+         se essa chamada não for a primeira instrução do construtor;</p>
+    <p> 20 – Um erro de compilação ocorre se um programa tentar inicializar um objeto de uma classe passando o número incorreto ou
+         tipos de argumentos incorretos para o construtor da classe;</p>
+    <p>21 – Um erro de compilação ocorre se um método static chamar um método de instância não static na mesma classe
+         utilizando somente o nome do método;</p>
+    <p> 22 – Referenciar this em um método static é considerado um erro de sintaxe;</p>
+    <p>23 – Um erro de compilação ocorre se um programa tentar importar métodos static que têm a mesma assinatura ou campos 
+        static que têm o mesmo nome provenientes de duas ou mais classes;</p>
+    <p>24 – Tentar modificar uma variável de instância final depois que ela é inicializada é um erro de compilação;</p>
+    <p>25 – Tentativas de modificar uma variável de instância final são capturadas em tempo de compilação em vez de causarem 
+        erros em tempo de execução;</p>
+    <p>26 - Não inicializar uma variável de instância final na sua declaração ou em cada construtor da classe produz
+         um erro de compilação indicando que a variável talvez não tenha sido inicializada;</p>
+    <p>27 – Utilizar uma assinatura de método incorreta ao tentar sobrescrever um método de superclasse resulta em sobrecarga
+         de método não intencional que pode levar a erros de lógica;</p>
+    <p>28 - É um erro de sintaxe sobrescrever um método com um modificador de acesso mais restrito;</p>
+    <p>29 – Um erro de compilação ocorre se um construtor de subclasse chamar um construtor de superclasse com argumentos 
+        que não coincidem com o número e os tipos de parâmetro em um dos construtores da superclasse;</p>
+    <p>30 – Tentar instanciar um objeto de uma classe abstrata é um erro de compilação;</p>
+    <p>31 – A falha em implementar os métodos abstratos de uma superclasse em uma subclasse é um erro de compilação a menos que a 
+        subclasse seja declarada como abstract;</p>
+
+    <p>32 – Tentar declarar uma subclasse de uma classe final é um erro de compilação;</p>  
+    <p>33 – Falhar em implementar qualquer método de uma interface em uma classe concreta que implementa a interface
+         resulta em um erro de compilação indicando que a classe deve ser declarada abstract;</p>
+    <p>34 - É um erro de sintaxe colocar código entre um bloco try e seus blocos catch correspondentes;</p> 
+    <p>35 – Um erro de compilação ocorre se um método tentar explicitamente lançar uma exceção verificada e essa exceção
+         não estiver listada na cláusula throws do método;</p>
+    <p>36 – Se um método de subclasse sobrescrever um método de superclasse, é um erro o método de subclasse listar 
+        mais exceções em sua cláusula throws do que o método sobrescrito da superclasse;</p>
+    <p>37 – Colocar um bloco catch para um tipo de exceção da superclasse antes de outro bloco catch que capturam tipos 
+        de exceção de subclasse impediria que esses blocos executem, então ocorre um erro de compilação;</p>
+    <p>38 – Se uma exceção não tiver sido capturada quando o controle entrar em um bloco finally e esse bloco 
+        lançar uma exceção que não será capturada por ele, a primeira exceção será perdida e a exceção do bloco será retornada 
+        ao método chamador;</p>
+    <p>39 – Evite colocar código que possa lançar (throw) uma exceção em um bloco finally;</p>
+    <p>40 – Assumir que uma exceção lançada de um bloco catch será processada por esse bloco catch ou 
+        qualquer outro bloco catch associado com a mesma instrução try pode resultar em erros de lógica; </p>   
+    <p>41 – Acessar um caractere fora dos limites de uma String resulta em StringIndexOutOfBoundsException;</p>
+    <p>42 – Tentar acessar um caractere que está além dos limites de uma StringBuilder resulta em StringIndexOutOfBoundsException;</p>
+
+
+    <h5>Todas as referências utilizadas foram do livro Java como Programar 8 edição do autor Paul Deitel / Harvey Deitel</h5>
+</body>
+</html>
